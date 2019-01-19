@@ -1,0 +1,35 @@
+.loading-bar {
+	&::after {
+		position: absolute;
+		top: 0;
+		left: 0;
+		content: '';
+		height: 2px;
+		width: 2px;
+		background-color: rgba(53, 187, 240, 1);
+		animation: pogo cubic-bezier(0.77, 0, 0.175, 1) 2s infinite;
+		box-shadow: 0 0 7px rgba(53, 187, 240, 1), 0 0 2px rgba(53, 187, 240, 1);
+	}
+}
+
+@keyframes pogo {
+	25% {
+		width: 100%;
+	}
+
+	50% {
+		width: 0;
+		left: auto;
+		right: 0;
+	}
+
+	75% {
+		width: 100%;
+	}
+
+	100% {
+		width: 0;
+		right: auto;
+		left: 0;
+	}
+}

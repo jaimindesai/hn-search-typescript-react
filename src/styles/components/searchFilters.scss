@@ -1,0 +1,148 @@
+.search-filter-control {
+	padding: 20px 0;
+
+	.open-filter {
+		width: 100%;
+		height: 40px;
+		background-color: $light-dark-blue;
+		box-sizing: border-box;
+		border: 1px solid $mid-dark-blue;
+		border-radius: 3px;
+		color: $white;
+		font-size: 18px;
+		text-transform: uppercase;
+		text-align: center;
+		cursor: pointer;
+		-webkit-appearance: none;
+	}
+}
+
+.search-filter-container {
+	background: $white;
+	display: none;
+	width: 100%;
+	padding: 15px 0;
+
+	fieldset {
+		border: none;
+		padding: 15px 10px 0 10px;
+		margin: 30px 5px;
+		position: relative;
+
+		legend {
+			position: absolute;
+			top: -6px;
+		}
+
+		.form-select {
+			width: 100%;
+			height: 40px;
+			background: $white;
+			position: relative;
+
+			select {
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+				width: 100%;
+				height: 100%;
+				padding: 0 3px 0 6px;
+				background: none;
+				font-size: $input-label-font-size;
+				border: 1px solid $select-bd;
+				border-radius: 3px;
+			}
+
+			select:focus {
+				outline: 0;
+				border-color: $dark-gray;
+			}
+
+			select:hover {
+				cursor: pointer;
+			}
+		}
+
+		.form-select::after {
+			content: url('data:image/svg+xml;utf8, <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve"><polyline fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="%23999999" stroke-width="3" stroke-linecap="square" stroke-miterlimit="3" points="2.6,17.3 32,46.7 61.4,17.3 "/></svg>');
+			position: absolute;
+			right: 8px;
+			top: 24px;
+			transform: translateY(-50%);
+			pointer-events: none;
+		}
+	}
+
+	.filter-sort {
+		.filter-sort-val {
+			cursor: pointer;
+			color: $blue;
+		}
+
+		.selected {
+			font-weight: bold;
+			color: $active-blue;
+		}
+	}
+}
+
+.search-filter-control-bottom {
+	display: none;
+	padding-bottom: 20px;
+
+	.search-filter-controls {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+
+		li {
+			display: flex;
+			flex-direction: column;
+			padding: 10px;
+		}
+
+		.cancel-button {
+			min-width: 150px;
+			height: 40px;
+			background-color: $mid-gray;
+			box-sizing: border-box;
+			border: 1px solid $mid-gray;
+			border-radius: 3px;
+			color: $white;
+			font-size: 16px;
+			line-height: 40px;
+			text-transform: uppercase;
+			text-align: center;
+			cursor: pointer;
+		}
+
+		.apply-button {
+			min-width: 150px;
+			height: 40px;
+			background-color: $light-dark-blue;
+			box-sizing: border-box;
+			border: 1px solid $mid-dark-blue;
+			border-radius: 3px;
+			color: $white;
+			font-size: 16px;
+			line-height: 40px;
+			text-transform: uppercase;
+			text-align: center;
+			cursor: pointer;
+		}
+	}
+}
+
+.visible {
+	.search-filter-control {
+		display: none;
+	}
+
+	.search-filter-container {
+		display: block;
+	}
+
+	.search-filter-control-bottom {
+		display: block;
+	}
+}

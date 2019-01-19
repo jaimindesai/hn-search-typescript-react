@@ -1,12 +1,10 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import Hello from './hello';
 // Stylesheet
-import "./app.scss";
+import './styles/index.scss';
 
 ReactDOM.render(
-  <div>
-    <h1>Hello World</h1>
-  </div>,
-  document.getElementById("app")
+  <Hello compiler="Typescript'" bundler="Webpack'" />,
+  document.getElementById('app')
 );

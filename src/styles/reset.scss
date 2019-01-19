@@ -1,0 +1,64 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+a,
+input,
+textarea,
+button,
+select {
+	outline: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 0;
+	padding: 0;
+}
+
+a:hover,
+h1:focus,
+h2:focus,
+h3:focus,
+h4:focus,
+h5:focus,
+h6:focus {
+	text-decoration: none;
+}
+
+html a:focus,
+html input:focus,
+html textarea:focus,
+html button:focus,
+html select:focus {
+	outline: none;
+	text-decoration: none;
+}
+
+dl,
+dt,
+dd,
+ol,
+ul,
+li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+::placeholder {
+	color: $placeholder-text;
+	font-size: $input-placeholder-font-size;
+	opacity: 1;
+}

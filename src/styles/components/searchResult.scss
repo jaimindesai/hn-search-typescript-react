@@ -1,0 +1,64 @@
+.search-result-container {
+	background: $white;
+
+	a {
+		display: block;
+		position: relative;
+		border-left: 4px solid $white;
+		border-right: 4px solid $white;
+		border-bottom: 1px solid $vampire-teeth-gray;
+		cursor: pointer;
+
+		.card {
+			position: relative;
+			background: $white;
+			padding: 16px 20px 35px 20px;
+			color: $darkness-gray;
+
+			.card-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				flex-wrap: wrap;
+
+				h2 {
+					font-size: 21px;
+					font-weight: $default-font-weight;
+					color: $job-card-h2-color;
+					line-height: 1.4;
+					padding: 10px 0 10px 0;
+				}
+
+				.date {
+					color: $label-text;
+					font-size: 12px;
+
+					svg {
+						display: inline-block;
+						margin: 0 -5px -5px 10px;
+					}
+				}
+			}
+
+			p {
+				margin: 5px 0 15px 0;
+			}
+
+			.card-footer {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+
+				li {
+					display: flex;
+					flex-direction: column;
+
+					.title {
+						color: $label-text;
+						font-size: 12px;
+					}
+				}
+			}
+		}
+	}
+}

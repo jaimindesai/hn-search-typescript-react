@@ -1,0 +1,109 @@
+.search-result-details-container {
+	.details-header {
+		color: $details-header-color;
+		background: $details-header-bg;
+		padding: 15px;
+		display: flex;
+		justify-content: space-between;
+
+		.info {
+			width: 100%;
+
+			h2 {
+				font-weight: $default-font-weight;
+				font-size: 24px;
+				line-height: 1.4;
+				padding: 10px 0 15px;
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+			}
+
+			.label {
+				color: $white;
+				opacity: 0.7;
+			}
+
+			.name {
+				font-size: 13px;
+				font-weight: $normal-font-weight;
+			}
+		}
+	}
+
+	.info-footer {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		margin-bottom: 10px;
+
+		li {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.back-button {
+			margin: 10px;
+			min-width: 150px;
+			height: 40px;
+			background-color: $details-cancel-btn-bg;
+			box-sizing: border-box;
+			border: 1px solid $details-cancel-btn-bd;
+			border-radius: 3px;
+			color: $details-cancel-btn-color;
+			font-size: 16px;
+			line-height: 40px;
+			text-transform: uppercase;
+			text-align: center;
+			cursor: pointer;
+		}
+
+		.refer-link {
+			cursor: pointer;
+			color: $blue;
+			line-height: 40px;
+			margin: 10px 15px;
+		}
+
+		.apply-button {
+			margin: 10px;
+			min-width: 150px;
+			height: 40px;
+			background-color: $details-apply-btn-bg;
+			box-sizing: border-box;
+			border: 1px solid $details-apply-btn-bd;
+			border-radius: 3px;
+			color: $details-apply-btn-color;
+			font-size: 16px;
+			line-height: 40px;
+			text-transform: uppercase;
+			text-align: center;
+			cursor: pointer;
+		}
+
+		.apply-button.button-disabled {
+			background-color: $mid-dark-gray;
+			border: 1px solid $mid-dark-gray;
+		}
+	}
+
+	.details-content {
+		padding: 15px;
+
+		h3 {
+			font-size: $h3-desktop-font-size;
+			font-weight: $default-font-weight;
+			padding: 15px 0;
+		}
+
+		ul {
+			margin-left: 20px;
+
+			li {
+				list-style-type: disc;
+				padding-left: 10px;
+				padding-bottom: 5px;
+			}
+		}
+	}
+}
