@@ -16,6 +16,7 @@
     "import-name": false,
     "object-shorthand-properties-first": false,
     "no-param-reassign": false,
-    "array-bracket-spacing": false
+    "array-bracket-spacing": false,
+    "quotemark": [true, "single"]
   }
 }
