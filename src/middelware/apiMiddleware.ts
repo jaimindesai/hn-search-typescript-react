@@ -6,7 +6,7 @@ const options: RequestInit = {
   credentials: 'include'
 };
 
-const apiMiddleware = (store: any) => (next: any) => (action: any) => {
+const apiMiddleware = store => next => action => {
   if (action.api && action.api.endpoint) {
     const currentState = store.getState();
 

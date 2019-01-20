@@ -8,3 +8,7 @@ export const loadNewsList = () => ({
     searchAPI: 'search'
   }
 });
+
+export const showLoadingIndicator = () => ({
+  type: 'SHOW_LOADING_SEARCH'
+});
