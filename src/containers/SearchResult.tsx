@@ -7,30 +7,11 @@ import { State, NewsList, NewsInfo } from '../types';
 export interface SearchResultProps extends NewsList {
   newsBoard: string;
   hits: NewsInfo[];
-  selectedJobID: string;
-  scrollToSelectedFlag: boolean;
 }
 
 class SearchResult extends React.Component<SearchResultProps, undefined> {
   constructor(props) {
     super(props);
-  }
-
-  componentDidUpdate() {
-    if (this.props.scrollToSelectedFlag) {
-      const el: HTMLElement | null = document.getElementById(
-        this.props.selectedJobID
-      );
-      const list: HTMLElement | null = document.getElementById(
-        'search-result-list'
-      );
-      if (el !== null && list !== null) {
-        const pos = el.offsetTop - list.scrollTop;
-        if (pos < 0 || pos > list.offsetHeight) {
-          list.scrollTop = el.offsetTop - list.offsetTop;
-        }
-      }
-    }
   }
 
   render() {
