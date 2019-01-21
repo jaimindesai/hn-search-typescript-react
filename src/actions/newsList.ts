@@ -4,7 +4,7 @@ export const loadNewsList = () => ({
   type: ' LOAD_NEWS_LIST',
   api: {
     method: 'GET',
-    endpoint: `${getSearchAPI()}/search`,
+    endpoint: 'https://hn.algolia.com/api/v1/search?query=foo&tags=story',
     searchAPI: 'search'
   }
 });

@@ -17,17 +17,8 @@ const DesktopLayout = (props: DesktopLayoutProps) => {
     <div className='wrapper'>
       <SearchControls />
       <SearchHeader />
-
-      <Switch>
-        <Route
-          path='/:jobBoard'
-          exact={true}
-          render={() => <div className='search-result-list' />}
-        />
-        <Route path='/:jobBoard/job/:id' component={SearchResult} />
-      </Switch>
     </div>
   );
 };
 
-export default withRouter(DesktopLayout);
+export default DesktopLayout;

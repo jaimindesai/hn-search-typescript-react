@@ -7,33 +7,9 @@ const options: RequestInit = {
 };
 
 const apiMiddleware = store => next => action => {
+  console.log('Inside Middelware');
   if (action.api && action.api.endpoint) {
-    const currentState = store.getState();
-
-    switch (action.api.searchAPI) {
-      case 'search':
-        const queryString = qs.stringify(
-          {
-            q: currentState.title.newsTerm // search term
-          },
-          {
-            encodeValuesOnly: true
-          }
-        );
-
-        action.term = currentState.title.newsTerm;
-
-        // build query string
-        action.api.endpoint += `? ${queryString}`;
-        break;
-
-      default:
-        break;
-    }
-
-    const config = merge({}, options, action.api);
-
-    fetch(action.api.endpoint, config)
+    fetch('https://hn.algolia.com/api/v1/search?query=foo&tags=story')
       .then(response => response.json())
       .then(result =>
         next(

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import MediaQuery from 'react-responsive';
 import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import DesktopLayout from './DesktopLayout';
@@ -12,8 +11,7 @@ import './../styles/index.scss';
 export interface CoreLayoutProps {
   hits: NewsInfo[];
   loading: boolean;
-  loadJobList: () => void;
-  loadJobPosting: () => void;
+  loadNewsList: () => void;
   showLoadingIndicator: () => void;
 }
 
@@ -24,7 +22,7 @@ class CoreLayout extends React.Component<CoreLayoutProps, undefined> {
 
   componentDidMount() {
     this.props.showLoadingIndicator();
-    this.props.loadJobList();
+    this.props.loadNewsList();
   }
 
   render() {

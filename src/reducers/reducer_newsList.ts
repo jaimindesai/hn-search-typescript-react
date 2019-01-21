@@ -17,14 +17,13 @@ export default function newsListReducer(
         loading: true
       });
 
-    case 'LOAD_JOB_LIST':
-      if (!action.error && !action.fetching) {
-        return assign({}, state, {
-          term: action.term,
-          hits: action.response.hits,
-          loading: false
-        });
-      }
+    case 'LOAD_NEWS_LIST':
+      return assign({}, state, {
+        term: action.term,
+        hits: action.response.hits,
+        loading: false
+      });
+
       return state;
 
     default:

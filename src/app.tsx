@@ -1,10 +1,16 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import Hello from './hello';
-// Stylesheet
-import './styles/index.scss';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import configureStore from './store';
+import CoreLayout from './layouts/CoreLayout';
 
-ReactDOM.render(
-  <Hello compiler="Typescript'" bundler="Webpack'" />,
-  document.getElementById('app')
-);
+const renderApp = async Component => {
+  render(
+    <Provider store={configureStore()}>
+      <Component />
+    </Provider>,
+    document.getElementById('app')
+  );
+};
+
+renderApp(CoreLayout);
