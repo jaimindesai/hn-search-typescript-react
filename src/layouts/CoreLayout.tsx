@@ -3,6 +3,7 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import DesktopLayout from './DesktopLayout';
 import { loadNewsList, showLoadingIndicator } from '../actions/newsList';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import { State, NewsInfo } from '../types';
 
@@ -27,7 +28,11 @@ class CoreLayout extends React.Component<CoreLayoutProps, undefined> {
 
   render() {
     return (
-      <DesktopLayout hits={this.props.hits} loading={this.props.loading} />
+      <div>
+        <Router>
+          <DesktopLayout hits={this.props.hits} loading={this.props.loading} />
+        </Router>
+      </div>
     );
   }
 }
@@ -40,8 +45,8 @@ const mapStateToProps = (state: State) => ({
 const mapDispatchToProps = (dispatch: Dispatch<any>) =>
   bindActionCreators(
     {
-      loadNewsList,
-      showLoadingIndicator
+      showLoadingIndicator,
+      loadNewsList
     },
     dispatch
   );

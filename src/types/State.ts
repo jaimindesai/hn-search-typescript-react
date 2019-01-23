@@ -22,3 +22,5 @@ export interface NewsList {
   loading: boolean;
   error: string | null;
 }
+
+

@@ -8,11 +8,7 @@ import rootReducer from '../reducers';
 let store = null;
 
 export default function configureStore(initialState = {}) {
-  // Check to avoid multiple configured stores
-  if (store) {
-    return store;
-  }
-  const middlewares = [thunk, apiMiddleware, logger];
+  const middlewares = [thunk, logger];
   store = createStore(
     rootReducer,
     initialState,
