@@ -21,7 +21,11 @@ class SearchResult extends React.Component<SearchResultProps, undefined> {
 
     return (
       <div className='search-result-list' id='search-result-list'>
-        <div className='search-result-container'>{newsCards}</div>
+        <div className='search-result-container'>
+          {this.props.hits.map(hit => (
+            <div>{hit.title} </div>
+          ))}
+        </div>
       </div>
     );
   }

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import DesktopLayout from './DesktopLayout';
 import { loadNewsList, showLoadingIndicator } from '../actions/newsList';
 import { BrowserRouter as Router } from 'react-router-dom';
+import MediaQuery from 'react-responsive';
 
 import { State, NewsInfo } from '../types';
 
@@ -28,11 +29,20 @@ class CoreLayout extends React.Component<CoreLayoutProps, undefined> {
 
   render() {
     return (
-      <div>
-        <Router>
-          <DesktopLayout hits={this.props.hits} loading={this.props.loading} />
-        </Router>
-      </div>
+      <Router>
+        <MediaQuery minWidth={960}>
+          {matches => {
+            if (matches) {
+              return (
+                <DesktopLayout
+                  hits={this.props.hits}
+                  loading={this.props.loading}
+                />
+              );
+            }
+          }}
+        </MediaQuery>
+      </Router>
     );
   }
 }

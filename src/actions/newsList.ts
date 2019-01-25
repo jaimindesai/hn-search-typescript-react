@@ -8,7 +8,7 @@ export const showLoadingIndicator = () => ({
 
 export const loadNewsList = () => {
   return dispatch => {
-    const api = `https://hn.algolia.com/api/v1/search?query=foo&tags=story`;
+    const api = `https://hn.algolia.com/api/v1/search?query=react&tags=story`;
     axios.get(api).then(response => {
       dispatch({
         type: LOAD_NEWS_LIST,

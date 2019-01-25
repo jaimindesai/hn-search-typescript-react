@@ -4,7 +4,7 @@ import SearchControls from '../containers/SearchControls';
 import SearchHeader from '../containers/SearchHeader';
 
 import SearchResult from '../containers/SearchResult';
-
+import { NewsCard } from '../components/NewsCard';
 import { NewsInfo } from '../types';
 
 interface DesktopLayoutProps {
@@ -13,18 +13,19 @@ interface DesktopLayoutProps {
 }
 
 const DesktopLayout = (props: DesktopLayoutProps) => {
+  const { hits, loading } = props;
+  const jobCards = hits.map((hit: NewsInfo) => {
+    return <NewsCard key={hit.objectID} news={hit} />;
+  });
   return (
-    <div className='wrapper'>
-      <SearchControls />
-      <SearchHeader />
-      <Switch>
-        <Route
-          path='/:jobBoard'
-          exact={true}
-          render={() => <div className='search-result-list' />}
-        />
-        <Route path='/:jobBoard/job/:id' component={SearchResult} />
-      </Switch>
+    <div>
+      <div className='wrapper'>
+        <SearchControls />
+        <SearchHeader />
+      </div>
+      <div className='search-result-list' id='search-result-list'>
+        <div className='search-result-container'>{jobCards}</div>
+      </div>
     </div>
   );
 };

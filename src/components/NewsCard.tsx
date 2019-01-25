@@ -18,7 +18,7 @@ export const NewsCard = (props: JobCardProps) => {
       </div>
       <ul className='card-footer'>
         <li>
-          <span className='label'>Author</span>
+          <span className='label'>Author </span>
           <span>{author}</span>
         </li>
       </ul>
