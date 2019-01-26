@@ -1,5 +1,6 @@
 import { getSearchAPI } from '../constants';
 import { LOAD_NEWS_LIST, REQUEST_ERROR } from '../types';
+
 import axios from 'axios';
 
 export const showLoadingIndicator = () => ({
@@ -15,14 +16,7 @@ export const loadNewsList = () => {
         payload: response.data,
         error: false,
         fetching: false
-      }).catch(error =>
-        dispatch({
-          type: REQUEST_ERROR,
-          payload: error,
-          error: true,
-          fetching: false
-        })
-      );
+      });
     });
   };
 };

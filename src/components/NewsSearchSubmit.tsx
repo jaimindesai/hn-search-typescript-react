@@ -9,7 +9,7 @@ export const NewsSearchSubmit = (props: NewsSearchProps) => {
     <div className='search-submit-container'>
       <input
         className='search-submit'
-        value='Find Jobs'
+        value='Find News'
         type='button'
         onClick={props.onClick}
       />

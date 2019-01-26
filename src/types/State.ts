@@ -4,6 +4,11 @@ export interface State {
   newsList: NewsList;
 }
 
+export interface SearchResponse {
+  hits: NewsInfo[];
+  total: number;
+}
+
 export interface NewsTitle {
   newsTerm: string;
 }
@@ -19,8 +24,7 @@ export interface NewsInfo {
 export interface NewsList {
   term: string;
   hits: NewsInfo[];
+  total: number;
   loading: boolean;
   error: string | null;
 }
-
-
