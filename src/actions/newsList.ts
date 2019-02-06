@@ -6,7 +6,7 @@ import axios from 'axios';
 export const showLoadingIndicator = () => ({
   type: 'SHOW_LOADING_SEARCH'
 });
-
+/*
 export const loadNewsList = () => {
   return dispatch => {
     const api = `https://hn.algolia.com/api/v1/search?query=react&tags=story`;
@@ -20,3 +20,13 @@ export const loadNewsList = () => {
     });
   };
 };
+*/
+
+export const loadNewsList = () => ({
+  type: LOAD_NEWS_LIST,
+  api: {
+    method: 'GET',
+    endpoint: `${getSearchAPI()}/search`,
+    searchAPI: 'search'
+  }
+});

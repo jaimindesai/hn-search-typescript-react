@@ -1,5 +1,6 @@
 import { merge } from 'lodash';
 import * as qs from 'qs';
+import axios from 'axios';
 
 const options: RequestInit = {
   method: 'GET',
@@ -7,14 +8,41 @@ const options: RequestInit = {
 };
 
 const apiMiddleware = store => next => action => {
-  console.log('Inside Middelware');
+  // eslint-disable-line
+
   if (action.api && action.api.endpoint) {
-    fetch('https://hn.algolia.com/api/v1/search?query=foo&tags=story')
-      .then(response => response.json())
-      .then(result =>
+    const currentState = store.getState();
+
+    console.log('currentState ..', currentState);
+    switch (action.api.searchAPI) {
+      case 'search':
+        const queryString = qs.stringify(
+          {
+            query: currentState.newsTitle.newsTerm
+          },
+          {
+            encodeValuesOnly: true
+          }
+        );
+
+        action.term = currentState.newsTitle.newsTerm;
+
+        // build query string
+        action.api.endpoint += '?' + queryString;
+        break;
+
+      default:
+        break;
+    }
+
+    console.log(' action.api.endpoint ', action.api.endpoint);
+
+    axios
+      .get(action.api.endpoint)
+      .then(response =>
         next(
           merge(action, {
-            response: result,
+            response: response.data,
             error: false,
             fetching: false
           })

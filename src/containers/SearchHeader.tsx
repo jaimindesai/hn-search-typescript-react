@@ -19,13 +19,7 @@ class SearchHeader extends React.Component<SearchHeaderProps, undefined> {
     let title = 'All news';
 
     // define title based on term and total number of matches
-    /*
-    if (newsTotal > 0) {
-      title = `${newsTerm} news`;
-    } else {
-      title = 'Sorry, no results were found based upon your search request';
-    }
-    */
+    
 
     const loadingBar = loading ? <LoadingBar /> : null;
 
@@ -34,8 +28,10 @@ class SearchHeader extends React.Component<SearchHeaderProps, undefined> {
         <div className='search-header-container'>
           {loadingBar}
           <h1>{title}</h1>
+
           <span className='count'>{count}</span>
         </div>
+        Search {newsTerm}
       </div>
     );
   }

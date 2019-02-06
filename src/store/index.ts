@@ -1,18 +1,12 @@
-import { compose, createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import logger from 'redux-logger';
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import reducers from '../reducers';
 import { apiMiddleware } from '../middelware';
+import { State } from '../types';
 
-import rootReducer from '../reducers';
-
-let store = null;
-
-export default function configureStore(initialState = {}) {
-  const middlewares = [thunk, logger];
-  store = createStore(
-    rootReducer,
-    initialState,
-    compose(applyMiddleware(...middlewares))
+export default function configureStore() {
+  return createStore(
+    reducers,
+    compose(applyMiddleware(thunkMiddleware, apiMiddleware))
   );
-  return store;
 }

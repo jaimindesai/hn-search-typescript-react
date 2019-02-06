@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { IconX, IconSearch, IconCurrentLocation } from './icons/index';
+import { IconX, IconSearch } from './icons/index';
 
 export namespace InputFields {
   export interface Props {
@@ -41,12 +41,6 @@ export class InputField extends React.Component<InputFields.Props> {
       return (
         <span className='search-icon'>
           <IconSearch size={16} color={'#ccc'} />
-        </span>
-      );
-    } else if (this.props.icon === 'location') {
-      return (
-        <span className='location-icon'>
-          <IconCurrentLocation size={16} color={'#ccc'} />
         </span>
       );
     }

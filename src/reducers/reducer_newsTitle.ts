@@ -9,10 +9,14 @@ export default function newsTitleReducer(
   action: AnyAction
 ) {
   switch (action.type) {
-    case 'SET_JOB_TERM':
-      return { ...state, newsTerm: action.newsTerm };
-    case 'DELETE_JOB_TERM':
-      return { ...state, newsTerm: '' };
+    case 'SET_NEWS_TERM':
+      return assign({}, state, {
+        newsTerm: action.newsTerm
+      });
+    case 'DELETE_NEWS_TERM':
+      return assign({}, state, {
+        newsTerm: ''
+      });
     default:
       return state;
   }

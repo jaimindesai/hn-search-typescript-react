@@ -12,6 +12,7 @@ export default function newsListReducer(
   },
   action: AnyAction
 ) {
+  console.log('Reducer');
   switch (action.type) {
     case 'SHOW_LOADING_SEARCH':
       return assign({}, state, {
@@ -19,23 +20,26 @@ export default function newsListReducer(
       });
 
     case LOAD_NEWS_LIST:
-      const total = action.payload.nbHits;
-      const finalData = action.payload.hits.map(hit => {
-        let created_at = new Date(hit.created_at);
-        return {
-          created_at: getFormattedDate(created_at),
-          objectID: hit.objectID,
-          title: hit.title,
-          author: hit.author,
-          points: hit.points
-        };
-      });
-      return assign({}, state, {
-        term: action.term,
-        hits: finalData,
-        total,
-        loading: false
-      });
+      if (!action.error && !action.fetching) {
+        const total = action.response.nbHits;
+        const finalData = action.response.hits.map(hit => {
+          let created_at = new Date(hit.created_at);
+          return {
+            created_at: getFormattedDate(created_at),
+            objectID: hit.objectID,
+            title: hit.title,
+            author: hit.author,
+            points: hit.points
+          };
+        });
+
+        return assign({}, state, {
+          term: action.term,
+          hits: finalData,
+          total,
+          loading: false
+        });
+      }
       return state;
     default:
       return state;

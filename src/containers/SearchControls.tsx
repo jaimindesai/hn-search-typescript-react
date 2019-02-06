@@ -52,7 +52,9 @@ const mapDispatchToProps = (dispatch: Dispatch<any>) =>
     dispatch
   );
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SearchControls);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(SearchControls)
+);

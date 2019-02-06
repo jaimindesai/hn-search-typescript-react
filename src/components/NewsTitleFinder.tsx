@@ -1,7 +1,8 @@
+import { debounce } from 'lodash';
 import * as React from 'react';
 import { setNewsTerm, cleanNews } from '../actions/newsTitle';
 import { InputField } from './InputField';
-import { bindActionCreators, Dispatch } from 'redux';
+import { bindActionCreators, Dispatch, Func0 } from 'redux';
 import { connect } from 'react-redux';
 import { State, NewsTitle } from '../types/index';
 
@@ -18,7 +19,7 @@ class NewsTitleFinder extends React.Component<NewsTitleFinderProps, undefined> {
 
   onChange(event: React.ChangeEvent<HTMLInputElement>) {
     const term = event.target.value;
-    this.props.setNewsTerm(term);
+    this.props.setNewsTerm(event.target.value);
   }
 
   render() {
